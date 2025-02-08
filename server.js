@@ -28,6 +28,10 @@ app.get('/auth/register', (req, res) => {
 res.render('auth/sign-up.ejs');
 })
 
+app.get('/auth/signin', (req, res) => {
+    res.render('auth/sign-in.ejs');
+    })
+
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
     
