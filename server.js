@@ -20,6 +20,14 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
+app.get('/error', (req, res) => {
+    res.render('error.ejs');
+})
+
+app.get('/auth/register', (req, res) => {
+res.render('auth/sign-up.ejs');
+})
+
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
     
