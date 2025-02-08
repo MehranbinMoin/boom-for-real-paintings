@@ -19,7 +19,7 @@ const paintingSchema = new mongoose.Schema ({
     }  
 })
 
-const artistSchema = new mongoose.Schema ({
+const userSchema = new mongoose.Schema ({
     username: {
         type: String,
         required: true,
@@ -31,6 +31,6 @@ const artistSchema = new mongoose.Schema ({
     painting: [paintingSchema],
 })
 
-const User = mongoose.model('Artist', artistSchema);
+const User = mongoose.model('User', userSchema);
 
-module.exports = Artist;
+module.exports = User;
