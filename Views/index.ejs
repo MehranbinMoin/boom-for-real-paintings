@@ -7,6 +7,11 @@
     <title>Homepage</title>
 </head>
 <body>
-    <h1>BOOM FOR REAL!</h1>
+    <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
+    <% if (!user) { %>
+        <p>Please sign in to upload and share paintings</p>
+        <a href="/auth/signin">Sign In</a>
+        <p>Or <a href="/auth/register">Register Account</a></p>
+    <% } %>
 </body>
 </html>

@@ -27,7 +27,8 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-    res.render('index.ejs');
+    const user = req.session.user;
+    res.render('index.ejs', {user});
 });
 
 app.get('/error', (req, res) => {
@@ -78,6 +79,10 @@ app.post('/auth/signin', async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, existingArtist.password);
         if (!isPasswordCorrect) {
             return res.send('Username or password is incorrect')
+        }
+        req.session.user = {
+            username: existingArtist.username,
+            id: existingArtist._id,
         }
         res.redirect('/');
 
