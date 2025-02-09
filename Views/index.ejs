@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <title>Homepage</title>
 </head>
+
 <body>
+    <nav>
+        <a href="/">MAIN GALLERY</a>
+        <% if (user) { %>
+            <a href="/auth/logout">Log Out</a>
+            <% } %>
+    </nav>
+
     <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
+
     <% if (!user) { %>
         <p>Please sign in to upload and share paintings</p>
         <a href="/auth/signin">Sign In</a>
+
         <p>Or <a href="/auth/register">Register Account</a></p>
-    <% } %>
+        <% } %>
+
 </body>
+
 </html>
