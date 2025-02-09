@@ -7,8 +7,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const User = require("./Models/user");
-
 
 const PORT = process.env.PORT || 3000;
 
@@ -44,68 +42,8 @@ app.use('/auth', authController);
 const isSignedIn = require('./middleware/is-signed-in');
 app.use(isSignedIn);
 
-app.get('/users/:id', async (req, res) => {
-    const userId = req.params.id;
-    const user = await User.findById(userId);
-    res.render('user/home.ejs', { user });
-});
-
-app.get('/users/:id/pieces/new', async (req, res) => {
-    const userId = req.params.id;
-    res.render('piece/new.ejs', { userId });
-});
-
-app.get('/users/:id/pieces/:pieceId', async (req, res) => {
-    const userId = req.params.id;
-    const pieceId = req.params.pieceId;
-    const user = await User.findById(userId);
-    const piece = user.painting.id(pieceId);
-    res.render('piece/show.ejs', { piece, userId });
-})
-
-app.get('/users/:id/pieces/:pieceId/edit', async (req, res) => {
-    const userId = req.params.id;
-    const pieceId = req.params.pieceId;
-    const user = await User.findById(userId);
-    const piece = user.painting.id(pieceId);
-    res.render('piece/edit.ejs', { piece, userId })
-
-});
-app.post('/users/:id/pieces', async (req, res) => {
-    const userId = req.params.id;
-    const title = req.body.title;
-    const description = req.body.description;
-    const price = req.body.price;
-
-    const user = await User.findById(userId);
-    user.painting.push({ title, description, price });
-    await user.save();
-    res.redirect(`/users/${userId}`);
-});
-
-app.put('/users/:id/pieces/:pieceId', async (req, res) => {
-    const userId = req.params.id;
-    const pieceId = req.params.pieceId;
-    const newTitle = req.body.title;
-    const newDescription = req.body.description;
-    const newPrice = req.body.price;
-    const user = await User.findById(userId);
-    const piece = user.painting.id(pieceId);
-    piece.title = newTitle;
-    piece.description = newDescription;
-    piece.price = newPrice;
-    await user.save();
-    res.redirect(`/users/${userId}/pieces/${pieceId}`);
-})
-
-app.delete('/users/:id/pieces/:pieceId', async (req, res) => {
-    const userId = req.params.id;
-    const pieceId = req.params.pieceId;
-    const user = await User.findById(userId);
-    user.painting.pull({_id: pieceId});
-    await user.save();
-    res.redirect(`/users/${userId}`);
-})
+const userController = require('./controllers/user');
+app.use('/users', userController);
 
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
