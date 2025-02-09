@@ -20,6 +20,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.static(path.join(__dirname, 'Public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -30,7 +31,7 @@ app.use(
 
 app.get('/', (req, res) => {
     const user = req.session.user;
-    res.render('index.ejs', {user});
+    res.render('index.ejs', { user });
 });
 
 app.get('/error', (req, res) => {
@@ -43,12 +44,12 @@ app.use('/auth', authController);
 app.get('/users/:id', async (req, res) => {
     const userId = req.params.id;
     const user = await User.findById(userId);
-    res.render('user/home.ejs', {user});
+    res.render('user/home.ejs', { user });
 });
 
 app.get('/users/:id/pieces/new', async (req, res) => {
-    const userId = req. params.id;
-    res.render('piece/new.ejs', {userId});
+    const userId = req.params.id;
+    res.render('piece/new.ejs', { userId });
 });
 
 app.get('/users/:id/pieces/:pieceId', async (req, res) => {
@@ -56,7 +57,7 @@ app.get('/users/:id/pieces/:pieceId', async (req, res) => {
     const pieceId = req.params.pieceId;
     const user = await User.findById(userId);
     const piece = user.painting.id(pieceId);
-    res.render('piece/show.ejs', {piece, userId});
+    res.render('piece/show.ejs', { piece, userId });
 })
 
 app.get('/users/:id/pieces/:pieceId/edit', async (req, res) => {
@@ -64,7 +65,7 @@ app.get('/users/:id/pieces/:pieceId/edit', async (req, res) => {
     const pieceId = req.params.pieceId;
     const user = await User.findById(userId);
     const piece = user.painting.id(pieceId);
-    res.render('piece/edit.ejs', {piece, userId})
+    res.render('piece/edit.ejs', { piece, userId })
 
 });
 app.post('/users/:id/pieces', async (req, res) => {
@@ -74,10 +75,25 @@ app.post('/users/:id/pieces', async (req, res) => {
     const price = req.body.price;
 
     const user = await User.findById(userId);
-    user.painting.push({title, description, price});
+    user.painting.push({ title, description, price });
     await user.save();
-    res.redirect(`/users/${userId}`); 
+    res.redirect(`/users/${userId}`);
 });
+
+app.put('/users/:id/pieces/:pieceId', async (req, res) => {
+    const userId = req.params.id;
+    const pieceId = req.params.pieceId;
+    const newTitle = req.body.title;
+    const newDescription = req.body.description;
+    const newPrice = req.body.price;
+    const user = await User.findById(userId);
+    const piece = user.painting.id(pieceId);
+    piece.title = newTitle;
+    piece.description = newDescription;
+    piece.price = newPrice;
+    await user.save();
+    res.redirect(`/users/${userId}/pieces/${pieceId}`);
+})
 
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
