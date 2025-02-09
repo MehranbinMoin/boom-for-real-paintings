@@ -41,6 +41,9 @@ app.get('/error', (req, res) => {
 const authController = require('./controllers/auth');
 app.use('/auth', authController);
 
+const isSignedIn = require('./middleware/is-signed-in');
+app.use(isSignedIn);
+
 app.get('/users/:id', async (req, res) => {
     const userId = req.params.id;
     const user = await User.findById(userId);
