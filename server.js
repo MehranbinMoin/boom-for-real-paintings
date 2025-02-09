@@ -50,17 +50,33 @@ app.get('/users/:id/pieces/new', async (req, res) => {
     res.render('piece/new.ejs', {userId});
 });
 
+app.get('/users/:id/pieces/:pieceId', async (req, res) => {
+    const userId = req.params.id;
+    const pieceId = req.params.pieceId;
+    const user = await User.findById(userId);
+    const piece = user.painting.id(pieceId);
+    res.render('piece/show.ejs', {piece, userId});
+})
+
+app.get('/users/:id/pieces/:pieceId/edit', async (req, res) => {
+    const userId = req.params.id;
+    const pieceId = req.params.pieceId;
+    const user = await User.findById(userId);
+    const piece = user.painting.id(pieceId);
+    res.render('piece/edit.ejs', {piece, userId})
+
+})
+
 app.post('/users/:id/pieces', async (req, res) => {
     const userId = req.params.id;
-    const title = req.params.title;
-    const description = req.params.description;
-    const price = req.params.price;
+    const title = req.body.title;
+    const description = req.body.description;
+    const price = req.body.price;
 
     const user = await User.findById(userId);
     user.painting.push({title, description, price});
     await user.save();
-    res.redirect(`users/${userId}`)
-
+    res.redirect(`/users/${userId}`); 
 });
 
 app.listen(PORT, () => {

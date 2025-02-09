@@ -16,7 +16,7 @@
     <% if (user.painting.length > 0) { %>
         <ul>
             <% user.painting.forEach(piece => { %>
-                <li><%= piece %></li>
+                <li><a href="/users/<%= user._id %>/pieces/<%= piece._id %>"><%= piece.title %> - <%= piece.description %> - <%= piece.price %></a></li>
             <% }) %>
         </ul>
         <% } else { %>
