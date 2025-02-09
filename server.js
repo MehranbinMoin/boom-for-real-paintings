@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const User = require("./Models/user");
 
+
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -35,7 +36,7 @@ app.get('/error', (req, res) => {
     res.render('error.ejs');
 });
 
-const authController = ('./controllers/auth');
+const authController = require('./controllers/auth');
 app.use('/auth', authController);
 
 app.listen(PORT, () => {
