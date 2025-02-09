@@ -10,7 +10,7 @@
 <body>
     <h1>Edit Painting</h1>
 
-    <form action="">
+    <form action="/users/<%= userId %>/pieces/<%= piece._id %>" method="POST">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="<%= piece.title %>">
 
@@ -19,6 +19,8 @@
 
         <label for="price">Price</label>
         <input type="text" name="price" id="price" value="<%= piece.price %>">
+
+        <button type="submit">Save changes</button>
 
     </form>
 </body>

@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
+const methodOverride = require("method-override");
 const User = require("./Models/user");
 
 
@@ -65,8 +66,7 @@ app.get('/users/:id/pieces/:pieceId/edit', async (req, res) => {
     const piece = user.painting.id(pieceId);
     res.render('piece/edit.ejs', {piece, userId})
 
-})
-
+});
 app.post('/users/:id/pieces', async (req, res) => {
     const userId = req.params.id;
     const title = req.body.title;
