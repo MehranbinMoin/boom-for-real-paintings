@@ -35,64 +35,9 @@ app.get('/error', (req, res) => {
     res.render('error.ejs');
 });
 
-app.get('/auth/register', (req, res) => {
-    res.render('auth/sign-up.ejs');
-});
-
-app.get('/auth/signin', (req, res) => {
-    res.render('auth/sign-in.ejs');
-});
-
-app.post('/auth/register', async (req, res) => {
-    try {
-        const username = req.body.username;
-        const existingArtist = await User.findOne({ username });
-        if (existingArtist) {
-            return res.send('Username is taken')
-        }
-
-        const password = req.body.password;
-        const confirmPassword = req.body.confirmPassword;
-
-        if (password !== confirmPassword) {
-            return res.send('Passwords not a match!')
-        }
-
-        const hashedPassword = await bcrypt.hashSync(password, 10);
-
-        await User.create({ username, password: hashedPassword });
-        res.redirect('/auth/signin');
-    } catch (error) {
-        console.log(error);
-        res.redirect('/error');
-    }
-});
-
-app.post('/auth/signin', async (req, res) => {
-    try {
-        const username = req.body.username;
-        const existingArtist = await User.findOne({ username });
-        if (!existingArtist) {
-            return res.send('Username or password is incorrect')
-        }
-        const password = req.body.password;
-        const isPasswordCorrect = await bcrypt.compare(password, existingArtist.password);
-        if (!isPasswordCorrect) {
-            return res.send('Username or password is incorrect')
-        }
-        req.session.user = {
-            username: existingArtist.username,
-            id: existingArtist._id,
-        }
-        res.redirect('/');
-
-    } catch (error) {
-        console.log(error);
-        res.redirect('/error');
-    }
-});
+const authController = ('./controllers/auth');
+app.use('/auth', authController);
 
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
-
-})
+});
