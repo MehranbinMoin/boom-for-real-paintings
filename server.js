@@ -39,6 +39,12 @@ app.get('/error', (req, res) => {
 const authController = require('./controllers/auth');
 app.use('/auth', authController);
 
+app.get('/users/:id', async (req, res) => {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    res.render('user/home.ejs', {user});
+});
+
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
 });

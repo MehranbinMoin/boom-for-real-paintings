@@ -52,7 +52,7 @@ router.post('/signin', async (req, res) => {
             username: existingArtist.username,
             id: existingArtist._id,
         }
-        res.redirect('/');
+        res.redirect(`/users/${existingArtist._id}`);
 
     } catch (error) {
         console.log(error);
@@ -60,4 +60,4 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-module.exports = router;gut 
+module.exports = router;
