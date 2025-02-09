@@ -45,6 +45,24 @@ app.get('/users/:id', async (req, res) => {
     res.render('user/home.ejs', {user});
 });
 
+app.get('/users/:id/pieces/new', async (req, res) => {
+    const userId = req. params.id;
+    res.render('piece/new.ejs', {userId});
+});
+
+app.post('/users/:id/pieces', async (req, res) => {
+    const userId = req.params.id;
+    const title = req.params.title;
+    const description = req.params.description;
+    const price = req.params.price;
+
+    const user = await User.findById(userId);
+    user.painting.push({title, description, price});
+    await user.save();
+    res.redirect(`users/${userId}`)
+
+});
+
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
 });
