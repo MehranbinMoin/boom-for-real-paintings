@@ -15,6 +15,11 @@
 
     <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">EDIT PAINTING</a>
 
+    <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
+
+        <button type="submit">DELETE</button>
+    </form>
+
     <a href="/users/<%= userId %>">Back to main gallery</a>
 </body>
 </html>

@@ -95,6 +95,15 @@ app.put('/users/:id/pieces/:pieceId', async (req, res) => {
     res.redirect(`/users/${userId}/pieces/${pieceId}`);
 })
 
+app.delete('/users/:id/pieces/:pieceId', async (req, res) => {
+    const userId = req.params.id;
+    const pieceId = req.params.pieceId;
+    const user = await User.findById(userId);
+    user.painting.pull({_id: pieceId});
+    await user.save();
+    res.redirect(`/users/${userId}`);
+})
+
 app.listen(PORT, () => {
     console.log(`Server is connected on port ${PORT}.`);
 });
