@@ -8,7 +8,6 @@
 </head>
 <body>
     <nav>
-        <a href="/">MAIN GALLERY</a>
         <a href="/auth/logout">Log Out</a>
     </nav>
     
@@ -21,10 +20,10 @@
     <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">EDIT PAINTING</a>
 
     <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
-
+<br>
         <button type="submit">DELETE</button>
     </form>
-
+<br>
     <a href="/users/<%= userId %>">Back to main gallery</a>
 </body>
 </html>
