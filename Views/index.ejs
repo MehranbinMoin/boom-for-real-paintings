@@ -25,8 +25,20 @@
 
         <p>Or <a href="/auth/register">Register Account</a></p>
 
-        
-
+        <div class="landing-gallery">
+            <% mergedPaintings.forEach(paiting=> { %>
+                <div class="painting-item">
+                    <h3>
+                        <%= painting.title %>
+                    </h3>
+                    <% if(painting.image && painting.image.data) { %>
+                        <img src="data:<%= painting.image.contentType %>;base64,<%= painting.image.data.toString('base64') %>"
+                            alt="<%= painting.title %>" class="painting-image">
+                        <%}%>
+                </div>
+                <%})%>
+        </div>
+        <%}%>
 </body>
 
 </html>
