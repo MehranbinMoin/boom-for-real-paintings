@@ -48,17 +48,25 @@ router.post('/:id/pieces', upload.single('image'), async (req, res) => {
     res.redirect(`/users/${userId}`);
 });
 
-router.put('/:id/pieces/:pieceId', async (req, res) => {
+router.put('/:id/pieces/:pieceId', upload.single('image'), async (req, res) => {
     const userId = req.params.id;
     const pieceId = req.params.pieceId;
     const newTitle = req.body.title;
     const newDescription = req.body.description;
     const newPrice = req.body.price;
+    const newImage = req.body.image
     const user = await User.findById(userId);
     const piece = user.painting.id(pieceId);
     piece.title = newTitle;
     piece.description = newDescription;
     piece.price = newPrice;
+    piece.image = newImage;
+    if (req.file) {
+        piece.image = {
+            data: req.file.buffer,
+            contentType: req.file.mimetype
+        };
+    };
     await user.save();
     res.redirect(`/users/${userId}/pieces/${pieceId}`);
 });

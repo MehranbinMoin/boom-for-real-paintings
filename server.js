@@ -41,8 +41,6 @@ app.get('/', async (req, res) => {
     for (let i = 0; i < users.length; i++ ) {
     mergedPaintings.push(...users[i].painting)
     }
-    console.log(mergedPaintings);
-    
     res.render('index.ejs', { user, mergedPaintings});
 });
 
