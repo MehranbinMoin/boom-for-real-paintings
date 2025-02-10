@@ -14,31 +14,36 @@
             <a href="/auth/logout">Log Out</a>
             <% } %>
     </nav>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
 
-    <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
+            <h2>COOLEST ART GALLERY IN THE WORLD</h2>
 
-    <h2>Keep painting until there's no more room left in the world</h2>
-
-    <% if (!user) { %>
-        <p>Please sign in to upload and share paintings</p>
-        <a href="/auth/signin">Sign In</a>
-
-        <p>Or <a href="/auth/register">Register Account</a></p>
-
-        <div class="landing-gallery">
-            <% mergedPaintings.forEach(paiting=> { %>
-                <div class="painting-item">
-                    <h3>
-                        <%= painting.title %>
-                    </h3>
-                    <% if(painting.image && painting.image.data) { %>
-                        <img src="data:<%= painting.image.contentType %>;base64,<%= painting.image.data.toString('base64') %>"
-                            alt="<%= painting.title %>" class="painting-image">
-                        <%}%>
+            <% if (!user) { %>
+                <div class="log-container">
+                    <p class="log-links">
+                        <a href="/auth/signin">Sign In</a>
+                        <a href="/auth/register">Register Account</a>
+                    </p>
                 </div>
-                <%})%>
         </div>
-        <%}%>
+        <p>Please sign in to upload and share paintings</p>
+    </header>
+    <div class="gallery">
+        <% mergedPaintings.forEach(painting=> { %>
+            <div class="piece-item">
+                <h2>
+                    <%= painting.title %>
+                </h2>
+                <% if (painting.image && painting.image.data) { %>
+                    <img src="data:<%= painting.image.contentType %>;base64,<%= painting.image.data.toString('base64') %>"
+                        alt="<%= painting.title %>" class="painting-image">
+                    <% } %>
+            </div>
+            <% }) %>
+    </div>
+    <% } %>
 </body>
 
 </html>
