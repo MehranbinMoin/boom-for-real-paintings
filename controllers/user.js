@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../Models/user");
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/:id', async (req, res) => {
     const userId = req.params.id;
@@ -29,14 +31,19 @@ router.get('/:id/pieces/:pieceId/edit', async (req, res) => {
     res.render('piece/edit.ejs', { piece, userId })
 
 });
-router.post('/:id/pieces', async (req, res) => {
+
+router.post('/:id/pieces', upload.single('image'), async (req, res) => {
     const userId = req.params.id;
     const title = req.body.title;
     const description = req.body.description;
     const price = req.body.price;
+    const image = {
+        data: req.file.buffer,
+            contentType: req.file.mimetype,
+    }
 
     const user = await User.findById(userId);
-    user.painting.push({ title, description, price });
+    user.painting.push({ title, description, price, image });
     await user.save();
     res.redirect(`/users/${userId}`);
 });

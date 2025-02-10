@@ -6,6 +6,9 @@ const app = express();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
+const User = require("./Models/user");
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
 const methodOverride = require("method-override");
 
 const PORT = process.env.PORT || 3000;
@@ -19,6 +22,10 @@ mongoose.connection.on('connected', () => {
 app.use(express.static(path.join(__dirname, 'Public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
+app.post('/api/upload', upload.single('avatar'), (req, res) => {
+    res.send('Uploaded successfully!');
+});
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -27,9 +34,16 @@ app.use(
     })
 );
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     const user = req.session.user;
-    res.render('index.ejs', { user });
+    const users =  await User.find();
+    const mergedPaintings = [];
+    for (let i = 0; i < users.length; i++ ) {
+    mergedPaintings.push(...users[i].painting)
+    }
+    console.log(mergedPaintings);
+    
+    res.render('index.ejs', { user, mergedPaintings});
 });
 
 app.get('/error', (req, res) => {

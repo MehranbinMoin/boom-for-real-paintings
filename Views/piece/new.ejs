@@ -10,23 +10,36 @@
 
 <body>
     <nav>
-        <a href="/users/<%= userId %>">MAIN GALLERY</a>
         <a href="/auth/logout">Log Out</a>
     </nav>
-    
+
     <h1>ADD PAINTING TO GALLERY</h1>
 
-    <form action="/users/<%= userId %>/pieces" method="POST">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" required>
-
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description" required>
-
-        <label for="price">Price</label>
-        <input type="text" name="price" id="price" required>
-
-        <button type="submit">Upload Painting</button>
+    <form action="/users/<%= userId %>/pieces" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <br>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" required>
+        </div>
+        <br>
+        <div>
+            <label for="price">Price</label>
+            <input type="text" name="price" id="price" required>
+        </div>
+        <br>
+        <div>
+            <label for="image">Painting image:</label>
+            <input type="file" name="image" id="image" accept="image/*" />
+        </div>
+        <br>
+        <button type="submit">Add Painting</button>
+        <br>
+        <br>
+        <a href="/users/<%= userId %>">Back to main gallery</a>
     </form>
 </body>
 

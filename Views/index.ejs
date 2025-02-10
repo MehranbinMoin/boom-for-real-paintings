@@ -10,7 +10,6 @@
 
 <body>
     <nav>
-        <a href="/">MAIN GALLERY</a>
         <% if (user) { %>
             <a href="/auth/logout">Log Out</a>
             <% } %>
@@ -18,12 +17,18 @@
 
     <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
 
+    <h2>Keep painting until there's no more room left in the world</h2>
+
     <% if (!user) { %>
         <p>Please sign in to upload and share paintings</p>
         <a href="/auth/signin">Sign In</a>
 
         <p>Or <a href="/auth/register">Register Account</a></p>
-        <% } %>
+
+        <% mergedPaintings.forEach(painting => { %>
+<h2><%= painting.title %></h2>
+            <% }) %>
+                <% } %>
 
 </body>
 

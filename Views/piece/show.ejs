@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <title>Painting</title>
 </head>
+
 <body>
     <nav>
         <a href="/auth/logout">Log Out</a>
     </nav>
-    
-    <h1>PAINTING</h1>
 
-    <p>Title: <%= piece.title %></p>
-    <p>Description: <%= piece.description %></p>
-    <p>Price: <%= piece.price %></p>
+    <p>Title: <%= piece.title %>
+    </p>
+    <p>Description: <%= piece.description %>
+    </p>
+    <p>Price: <%= piece.price %>
+    </p>
+    <% if (piece.image && piece.image.data) { %>
+        <img class="piece-image"
+            src="data:image/<%= piece.image.contentType %>;base64,<%= piece.image.data.toString('base64') %>"
+            alt="Painting Image">
+        <% } %>
+            <br>
+            <br>
+            <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">EDIT PAINTING</a>
 
-    <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">EDIT PAINTING</a>
-
-    <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
-<br>
-        <button type="submit">DELETE</button>
-    </form>
-<br>
-    <a href="/users/<%= userId %>">Back to main gallery</a>
+            <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
+                <br>
+                <button type="submit">DELETE</button>
+            </form>
+            <br>
+            <a href="/users/<%= userId %>">Back to main gallery</a>
 </body>
+
 </html>
