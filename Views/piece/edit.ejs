@@ -4,33 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/edit.css">
     <title>Edit Painting</title>
 </head>
 
 <body>
-    <nav>
-        <a href="/auth/logout">Log Out</a>
-    </nav>
-    <h1>Edit Painting</h1>
-
+    <header class="edit-banner">
+        <div class="edit-banner-content">
+            <h1>Edit painting</h1>
+        </div>
+        <div class="edit-log-container">
+            <p class="log-out-link">
+            <a href="/auth/logout">Log Out</a>
+            </p>
+        </div>
+    </header>
+    <br>
     <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <div>
+        <div class="edit-input">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" value="<%= piece.title %>">
         </div>
         <br>
-        <div>
+        <div class="edit-input">
             <label for="description">Description</label>
             <input type="text" name="description" id="description" value="<%= piece.description %>">
         </div>
         <br>
-        <div>
+        <div class="edit-input">
             <label for="price">Price</label>
             <input type="text" name="price" id="price" value="<%= piece.price %>">
         </div>
         <br>
-        <div>
+        <div class="edit-input">
             <label for="image">Painting image:</label>
             <input type="file" name="image" id="image" value="<%= piece.image %>" accept="image/*" />
         </div>

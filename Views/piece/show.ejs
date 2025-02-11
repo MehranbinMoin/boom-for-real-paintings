@@ -12,7 +12,7 @@
     <div class="top-border"></div>
     <header class="show-banner">
         <div class="show-banner-content">
-<h1>Painting Details</h1>
+            <h1>Painting Details</h1>
         </div>
         <div class="show-log-container">
             <p class="log-out-link">
@@ -20,28 +20,28 @@
             </p>
         </div>
     </header>
-<br>
+    <br>
     <div class="painting-card">
-    <p>Title: <%= piece.title %>
-    </p>
-    <p>Description: <%= piece.description %>
-    </p>
-    <p>Price: <%= piece.price %>
-    </p>
-    <% if (piece.image && piece.image.data) { %>
-        <img class="piece-image"
-            src="data:image/<%= piece.image.contentType %>;base64,<%= piece.image.data.toString('base64') %>"
-            alt="Painting Image">
-        <% } %>
-        <div class="painting-options">
-            <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">Edit painting</a>
+        <p>Title: <%= piece.title %>
+        </p>
+        <p>Description: <%= piece.description %>
+        </p>
+        <p>Price: <%= piece.price %>
+        </p>
+        <% if (piece.image && piece.image.data) { %>
+            <img class="piece-image"
+                src="data:image/<%= piece.image.contentType %>;base64,<%= piece.image.data.toString('base64') %>"
+                alt="Painting Image">
+            <% } %>
+                <div class="painting-options">
+                    <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">Edit painting</a>
 
-            <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-            </form>
-            <a href="/users/<%= userId %>">Back to main gallery</a>
-        </div>
-        </div>
+                    <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <a href="/users/<%= userId %>">Back to main gallery</a>
+                </div>
+    </div>
 </body>
 
 </html>

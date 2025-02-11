@@ -262,7 +262,39 @@ nav a {
     font-style: italic;
 }
 
+.show-banner-content {
+    padding: 10px;
+}
+
 .show-log-container {
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.home-banner {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.home-banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-style: italic;
+}
+
+.home-banner-content {
+    padding: 10px;
+}
+
+.home-log-container {
     position: relative;
     top: 20px;
     right: 20px;

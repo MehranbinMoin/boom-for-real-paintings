@@ -9,10 +9,15 @@
 </head>
 
 <body>
-    <header class="banner">
-        <div class="banner-content">
-            <a href="/auth/logout">Log Out</a>
+    <div class="top-border"></div>
+    <header class="home-banner">
+        <div class="home-banner-content">
             <h3>Welcome to your gallery, <%= user.username %>! </h3>
+        </div>
+        <div class="home-log-container">
+            <p class="log-out-link">
+                <a href="/auth/logout">Log Out</a>
+            </p>
         </div>
     </header>
 
