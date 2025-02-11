@@ -322,7 +322,7 @@ nav a {
     background-color: orange;
     color: white;
     border: none;
-    padding: 10px, 20px;
+    padding: 10px 20px;
     font-size: 1em;
     font-style: italic;
     cursor: pointer;
@@ -332,6 +332,11 @@ nav a {
 
 .painting-options button:hover {
     background-color: rgb(255, 0, 183);
+}
+
+.painting-options form {
+    margin: 0;
+    padding: 0;
 }
 
 .edit-banner {
@@ -357,6 +362,34 @@ nav a {
 }
 
 .edit-log-container {
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.add-banner {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.add-banner-content {
+    padding: 10px;
+}
+
+.add-banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-style: italic;
+}
+
+.add-log-container {
     position: relative;
     top: 20px;
     right: 20px;
