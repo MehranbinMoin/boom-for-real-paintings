@@ -9,25 +9,29 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/auth/logout">Log Out</a>
-    </nav>
-    
-    <h1>Share your paintings with the world, <%= user.username %>! </h1>
+    <header class="banner">
+        <div class="banner-content">
+            <a href="/auth/logout">Log Out</a>
+            <h2>SHARE YOUR PAINTINGS WITH THE WORLD, <%= user.username %>! </h2>
+            <h2>GALLERY</h2>
+        </div>
+    </header>
 
-    <h2>GALLERY OF PAINTINGS</h2>
+    <div class="gallery">
+        <% if (user.painting.length> 0) { %>
+            <% user.painting.forEach(piece=> { %>
+                <div class="piece-item">
+                    <a href="/users/<%= user._id %>/pieces/<%= piece._id %>">
+                        <%= piece.title %> - <%= piece.description %> - <%= piece.price %>
+                    </a>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <p class="empty-gallery">EMPTY GALLERY - GET TO PAINTING!</p>
+                        <% } %>
+    </div>
 
-    <% if (user.painting.length > 0) { %>
-        <ul>
-            <% user.painting.forEach(piece => { %>
-                <li><a href="/users/<%= user._id %>/pieces/<%= piece._id %>"><%= piece.title %> - <%= piece.description %> - <%= piece.price %></a></li>
-            <% }) %>
-        </ul>
-        <% } else { %>
-        <p>EMPTY COLLECTION - GET TO PAINTING!</p>
-        <% } %>
-
-        <a href="/users/<%= user._id %>/pieces/new">Add painting to gallery</a>
+    <a href="/users/<%= user._id %>/pieces/new" class="add-painting-btn">Add Painting</a>
 </body>
 
 </html>
