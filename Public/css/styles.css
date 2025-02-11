@@ -268,5 +268,36 @@ nav a {
     right: 20px;
 }
 
+.painting-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
 
+.painting-options a, .painting-options button {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
 
+.painting-options a:hover {
+    text-decoration: underline;
+    color: rgb(255, 0, 183);
+}
+
+.painting-options button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px, 20px;
+    font-size: 1em;
+    font-style: italic;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+.painting-options button:hover {
+    background-color: rgb(255, 0, 183);
+}

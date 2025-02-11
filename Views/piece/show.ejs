@@ -20,7 +20,7 @@
             </p>
         </div>
     </header>
-
+<br>
     <div class="painting-card">
     <p>Title: <%= piece.title %>
     </p>
@@ -33,14 +33,14 @@
             src="data:image/<%= piece.image.contentType %>;base64,<%= piece.image.data.toString('base64') %>"
             alt="Painting Image">
         <% } %>
-            <br>
-            <br>
+        <div class="painting-options">
             <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">Edit painting</a>
 
             <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
             </form>
             <a href="/users/<%= userId %>">Back to main gallery</a>
+        </div>
         </div>
 </body>
 
