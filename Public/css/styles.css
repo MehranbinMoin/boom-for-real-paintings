@@ -423,3 +423,21 @@ form {
     background-color: rgb(255, 0, 183);
     color: antiquewhite;
 }
+
+.add-button {
+    padding: 15px;
+    border: none;
+    background-color: rgb(255, 129, 61);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color 0.5s;
+}
+
+.add-button:hover {
+    background-color: rgb(255, 0, 183);
+    color: antiquewhite;
+}
