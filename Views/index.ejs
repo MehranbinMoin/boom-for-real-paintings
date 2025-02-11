@@ -16,19 +16,17 @@
     </nav>
     <header class="banner">
         <div class="banner-content">
-            <h1>BOOM FOR REAL, <%= user ? user.username : 'Guest' %>!</h1>
-
-            <h2>COOLEST ART GALLERY IN THE WORLD</h2>
+            <h1>Welcome, <%= user ? user.username : 'Guest' %>!</h1>
 
             <% if (!user) { %>
                 <div class="log-container">
                     <p class="log-links">
                         <a href="/auth/signin">Sign In</a>
-                        <a href="/auth/register">Register Account</a>
+                        <a href="/auth/register">Create Account</a>
                     </p>
                 </div>
         </div>
-        <p>PLEASE SIGN IN TO UPLOAD AND SHARE PAINTINGS</p>
+        <p class="index-please">Please sign in to upload and share paintings</p>
     </header>
     <div class="gallery">
         <% mergedPaintings.forEach(painting=> { %>

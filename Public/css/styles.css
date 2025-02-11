@@ -16,6 +16,10 @@ body {
 }
 
 nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -50,6 +54,16 @@ nav a {
 .banner-content h1 {
     font-size: 2.5em;
     margin: 0;
+    font-weight: 500px;
+}
+
+.banner-content2 a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 1.2em;
 }
 
 .gallery {
@@ -68,10 +82,14 @@ nav a {
     text-align: center;
     box-shadow: 0 10px 30px rgb(255, 120, 172);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(0, 0, 0);
 }
 
 .piece-item a {
-    color: rgb(38, 38, 38);
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -79,14 +97,9 @@ nav a {
     text-decoration: underline;
 }
 
-.piece-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.piece-item p {
-    font-size: 1em;
-    margin: 5px 0;
+.piece-item h3, .piece-item p {
+    position: relative;
+    z-index: 1;
 }
 
 .empty-gallery {
@@ -104,9 +117,13 @@ nav a {
     border-radius: 5px;
     font-size: 1.1em;
     font-style: italic;
-    margin-top: 20px;  
-    border: 2px solid rgb(255, 251, 239);  
+    margin-top: 20px;
+    border: 2px solid white;
     transition: background-color 0.5s;
+}
+
+.index-please {
+    font-style: italic;
 }
 
 .add-painting-btn:hover {

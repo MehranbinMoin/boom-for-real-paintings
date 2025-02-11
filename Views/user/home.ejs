@@ -10,19 +10,20 @@
 
 <body>
     <header class="banner">
-        <div class="banner-content">
+        <div class="banner-content2">
             <a href="/auth/logout">Log Out</a>
-            <h2>SHARE YOUR PAINTINGS WITH THE WORLD, <%= user.username %>! </h2>
-            <h2>GALLERY</h2>
+            <h3>Welcome to your gallery, <%= user.username %>! </h3>
         </div>
     </header>
 
     <div class="gallery">
         <% if (user.painting.length> 0) { %>
             <% user.painting.forEach(piece=> { %>
-                <div class="piece-item">
+                <div class="piece-item" style="background-image: url('<%= piece.image ?'data:' + piece.image.contentType + ';base64,' + piece.image.data.toString('base64') : '' %>');">
                     <a href="/users/<%= user._id %>/pieces/<%= piece._id %>">
-                        <%= piece.title %> - <%= piece.description %> - <%= piece.price %>
+                        <h3><%= piece.title %></h3> 
+                        <p><%= piece.description %></p>
+                        <p><%= piece.price %></p>
                     </a>
                 </div>
                 <% }) %>
