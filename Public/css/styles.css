@@ -74,6 +74,62 @@ nav a {
     padding: 20px;
 }
 
+.painting-card {
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgb(255, 120, 172);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.painting-card img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.painting-card p {
+    margin: 10px 0;
+}
+
+.painting-card a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.painting-card a:hover {
+    text-decoration: underline;
+    color: rgb(255, 0, 183);
+}
+
+.painting-card button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px, 20px;
+    margin-top: 20px;
+    font-size: 1em;
+    font-style: italic;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+.painting-card button:hover {
+    background-color: rgb(255, 0, 183);
+}
+
 .piece-item {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -143,6 +199,18 @@ nav a {
     color: rgb(237, 242, 238);
 }
 
+.log-out-link a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+}
+
+.log-out-link a:hover {
+    text-decoration: underline;
+    color: rgb(237, 242, 238);
+}
+
 .log-container {
     display: flex;
     justify-content: flex-end;
@@ -165,3 +233,40 @@ nav a {
     height: auto;
     border-radius: 8px;
 }
+
+.top-border {
+    background-color: black;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.show-banner {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.show-banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-style: italic;
+}
+
+.show-log-container {
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+
+

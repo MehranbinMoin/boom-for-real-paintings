@@ -9,10 +9,19 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/auth/logout">Log Out</a>
-    </nav>
+    <div class="top-border"></div>
+    <header class="show-banner">
+        <div class="show-banner-content">
+<h1>Painting Details</h1>
+        </div>
+        <div class="show-log-container">
+            <p class="log-out-link">
+                <a href="/auth/logout">Log Out</a>
+            </p>
+        </div>
+    </header>
 
+    <div class="painting-card">
     <p>Title: <%= piece.title %>
     </p>
     <p>Description: <%= piece.description %>
@@ -26,14 +35,13 @@
         <% } %>
             <br>
             <br>
-            <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">EDIT PAINTING</a>
+            <a href="/users/<%= userId %>/pieces/<%= piece._id %>/edit">Edit painting</a>
 
             <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=DELETE" method="POST">
-                <br>
-                <button type="submit">DELETE</button>
+                <button type="submit">Delete</button>
             </form>
-            <br>
             <a href="/users/<%= userId %>">Back to main gallery</a>
+        </div>
 </body>
 
 </html>
