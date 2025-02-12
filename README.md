@@ -27,9 +27,7 @@ Here's a screenshot of the landing page of the app:
 2. **How to style buttons in CSS**: https://www.w3schools.com/css/css3_buttons.asp
 3. **How to create a hero image**: https://www.w3schools.com/howto/howto_css_hero_image.asp
 
-**Technologies used**:
-
-HTML, CSS, Javascript, Express, Node, MongoDB, 
+**Technologies used**: HTML, CSS, Javascript, Express, Node, MongoDB, 
 
 **Next steps**: 
 
