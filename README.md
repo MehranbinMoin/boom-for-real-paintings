@@ -18,6 +18,7 @@ Here's a screenshot of the landing page of the app:
 
 
 **Getting started**: Project planning Google doc link: 
+
 https://docs.google.com/document/d/17MRu-VvM8hfDqwb9T2p4ITWaZYfhHvk_KXClvTRBqp4/edit?usp=sharing 
 
 
