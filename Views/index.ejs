@@ -16,6 +16,7 @@
     </nav>
     <header class="banner">
         <div class="banner-content">
+            <img src="//i.imgur.com/FoQrRoB.png" alt="logo of banner that says popportunity art gallery in all caps">
             <h3>Welcome, <%= user ? user.username : 'Guest' %>!</h3>
 
             <% if (!user) { %>
@@ -26,7 +27,6 @@
                     </p>
                 </div>
         </div>
-        <p class="index-please">Please sign in to upload and share paintings</p>
     </header>
     <div class="gallery">
         <% mergedPaintings.forEach(painting=> { %>
