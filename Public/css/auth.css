@@ -41,5 +41,12 @@ button {
 
 button:hover {
     background-color: rgb(255, 0, 183);
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
+}
+
+.banner-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
 }

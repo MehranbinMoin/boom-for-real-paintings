@@ -16,7 +16,8 @@
     </nav>
     <header class="banner">
         <div class="banner-content">
-            <h1>Welcome, <%= user ? user.username : 'Guest' %>!</h1>
+            <img src="//i.imgur.com/XqlWolf.png" class="banner-icon">
+            <h3>Welcome, <%= user ? user.username : 'Guest' %>!</h3>
 
             <% if (!user) { %>
                 <div class="log-container">
