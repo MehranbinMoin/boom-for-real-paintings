@@ -15,8 +15,14 @@ Here's a screenshot of the landing page of the app:
 
 
 **App's name**: POPPORTUNITY Art Gallery
+
+
 **Getting started**: Project planning Google doc link: https://docs.google.com/document/d/17MRu-VvM8hfDqwb9T2p4ITWaZYfhHvk_KXClvTRBqp4/edit?usp=sharing 
+
+
 **Attributions**: 
+
+
 1. **How to use Multer to upload and showcase photos**: https://expressjs.com/en/resources/middleware/multer.html
 2. **How to style buttons in CSS**: https://www.w3schools.com/css/css3_buttons.asp
 3. **How to create a hero image**: https://www.w3schools.com/howto/howto_css_hero_image.asp
