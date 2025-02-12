@@ -26,3 +26,13 @@ Here's a screenshot of the landing page of the app:
 1. **How to use Multer to upload and showcase photos**: https://expressjs.com/en/resources/middleware/multer.html
 2. **How to style buttons in CSS**: https://www.w3schools.com/css/css3_buttons.asp
 3. **How to create a hero image**: https://www.w3schools.com/howto/howto_css_hero_image.asp
+
+**Technologies used**:
+
+HTML, CSS, Javascript, Express, Node, MongoDB, 
+
+**Next steps**: 
+
+1. Embed video onto the landing page to make it more captivating.
+2. Learn about Sharp Node module and implement on site so that users with high-res photos will get images downsized automatically.
+3. Give users the abilty to create a moving image gallery with back and forward buttons implemented on each image. 
