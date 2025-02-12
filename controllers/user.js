@@ -39,7 +39,7 @@ router.post('/:id/pieces', upload.single('image'), async (req, res) => {
     const price = req.body.price;
     const image = {
         data: req.file.buffer,
-            contentType: req.file.mimetype,
+        contentType: req.file.mimetype,
     }
 
     const user = await User.findById(userId);
@@ -75,7 +75,7 @@ router.delete('/:id/pieces/:pieceId', async (req, res) => {
     const userId = req.params.id;
     const pieceId = req.params.pieceId;
     const user = await User.findById(userId);
-    user.painting.pull({_id: pieceId});
+    user.painting.pull({ _id: pieceId });
     await user.save();
     res.redirect(`/users/${userId}`);
 });

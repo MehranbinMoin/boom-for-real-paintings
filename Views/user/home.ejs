@@ -24,11 +24,18 @@
     <div class="gallery">
         <% if (user.painting.length> 0) { %>
             <% user.painting.forEach(piece=> { %>
-                <div class="piece-item" style="background-image: url('<%= piece.image ?'data:' + piece.image.contentType + ';base64,' + piece.image.data.toString('base64') : '' %>');">
+                <div class="piece-item"
+                    style="background-image: url('<%= piece.image ?'data:' + piece.image.contentType + ';base64,' + piece.image.data.toString('base64') : '' %>');">
                     <a href="/users/<%= user._id %>/pieces/<%= piece._id %>">
-                        <h3><%= piece.title %></h3> 
-                        <p><%= piece.description %></p>
-                        <p><%= piece.price %></p>
+                        <h3>
+                            <%= piece.title %>
+                        </h3>
+                        <p>
+                            <%= piece.description %>
+                        </p>
+                        <p>
+                            <%= piece.price %>
+                        </p>
                     </a>
                 </div>
                 <% }) %>

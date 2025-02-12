@@ -15,12 +15,20 @@
         </div>
         <div class="edit-log-container">
             <p class="log-out-link">
-            <a href="/auth/logout">Log Out</a>
+                <a href="/auth/logout">Log Out</a>
             </p>
         </div>
     </header>
     <br>
-    <form action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form id="edit-form" action="/users/<%= userId %>/pieces/<%= piece._id %>?_method=PUT" method="POST"
+        enctype="multipart/form-data">
         <div class="edit-input">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" value="<%= piece.title %>">

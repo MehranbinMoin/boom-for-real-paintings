@@ -36,12 +36,12 @@ app.use(
 
 app.get('/', async (req, res) => {
     const user = req.session.user;
-    const users =  await User.find();
+    const users = await User.find();
     const mergedPaintings = [];
-    for (let i = 0; i < users.length; i++ ) {
-    mergedPaintings.push(...users[i].painting)
+    for (let i = 0; i < users.length; i++) {
+        mergedPaintings.push(...users[i].painting)
     }
-    res.render('index.ejs', { user, mergedPaintings});
+    res.render('index.ejs', { user, mergedPaintings });
 });
 
 app.get('/error', (req, res) => {

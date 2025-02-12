@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const paintingSchema = new mongoose.Schema ({
+const paintingSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -14,12 +14,12 @@ const paintingSchema = new mongoose.Schema ({
         required: true,
     },
     image: {
-        data: Buffer,       
+        data: Buffer,
         contentType: String,
-    }  
+    }
 })
 
-const userSchema = new mongoose.Schema ({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,

@@ -16,6 +16,15 @@ body {
     min-height: 100vh;
 }
 
+h1,
+h3 {
+    font-weight: lighter;
+}
+
+h3 {
+    font-style: italic;
+}
+
 .main-content {
     flex: 1;
 }
@@ -65,7 +74,7 @@ nav a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-    text-align:center;
+    text-align: center;
 }
 
 .banner-content h1 {
@@ -170,7 +179,8 @@ nav a {
     text-decoration: underline;
 }
 
-.piece-item h3, .piece-item p {
+.piece-item h3,
+.piece-item p {
     position: relative;
     z-index: 1;
 }
@@ -324,7 +334,8 @@ nav a {
     margin-top: 20px;
 }
 
-.painting-options a, .painting-options button {
+.painting-options a,
+.painting-options button {
     text-decoration: none;
     color: black;
     margin: 0 10px;
@@ -354,6 +365,41 @@ nav a {
 .painting-options form {
     margin: 0;
     padding: 0;
+}
+
+form {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 5px;
+}
+
+#edit-form {
+    background-color: rgb(252, 119, 168);
+    color: black;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 10px 0px 30px 0px rgb(255, 161, 177);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 5px;
+}
+
+#new-painting {
+    background-color: rgb(252, 119, 168);
+    color: black;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 10px 0px 30px 0px rgb(255, 161, 177);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 5px;
 }
 
 .edit-banner {
@@ -447,15 +493,3 @@ nav a {
     background-color: rgb(255, 0, 183);
     color: antiquewhite;
 }
-
-form {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    padding: 40px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 5px;
-}
-
