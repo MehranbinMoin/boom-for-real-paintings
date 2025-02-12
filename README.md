@@ -7,3 +7,8 @@ https://imgur.com/user/MehranMoin/posts
 Here's a screenshot of the landing page of the app:
 ![Screenshot 2025-02-12 at 12 20 01 PM](https://github.com/user-attachments/assets/d32e0fc7-a7b3-4b9a-885a-00091fc9affe)
 **App's name**: POPPORTUNITY Art Gallery
+**Getting started**: Project planning Google doc link: https://docs.google.com/document/d/17MRu-VvM8hfDqwb9T2p4ITWaZYfhHvk_KXClvTRBqp4/edit?usp=sharing 
+**Attributions**: 
+1. **How to use Multer to upload and showcase photos**: https://expressjs.com/en/resources/middleware/multer.html
+2. **How to style buttons in CSS**: https://www.w3schools.com/css/css3_buttons.asp
+3. **How to create a hero image**: https://www.w3schools.com/howto/howto_css_hero_image.asp
