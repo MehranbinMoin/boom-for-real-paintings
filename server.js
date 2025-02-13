@@ -34,6 +34,9 @@ app.use(
     })
 );
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 app.get('/', async (req, res) => {
     const user = req.session.user;
     const users = await User.find();
