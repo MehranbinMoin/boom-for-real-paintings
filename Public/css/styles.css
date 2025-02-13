@@ -71,6 +71,8 @@ nav a {
 }
 
 .banner-content {
+    display: flex;
+
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
@@ -492,4 +494,11 @@ form {
 .add-button:hover {
     background-color: rgb(255, 0, 183);
     color: antiquewhite;
+}
+
+@media screen and (max-width: 1214px) {
+    .banner-content {
+        flex-direction: column;
+        border: 2px dashed red;
+    }
 }

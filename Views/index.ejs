@@ -16,9 +16,11 @@
     </nav>
     <header class="banner">
         <div class="banner-content">
-            <img src="//i.imgur.com/FoQrRoB.png" alt="logo of banner that says popportunity art gallery in all caps">
-            <h3>Welcome, <%= user ? user.username : 'Guest' %>!</h3>
-
+            <div>
+                <img src="//i.imgur.com/FoQrRoB.png"
+                    alt="logo of banner that says popportunity art gallery in all caps">
+                <h3>Welcome, <%= user ? user.username : 'Guest' %>!</h3>
+            </div>
             <% if (!user) { %>
                 <div class="log-container">
                     <p class="log-links">
@@ -26,6 +28,7 @@
                         <a href="/auth/register">Create Account</a>
                     </p>
                 </div>
+                <% } %>
         </div>
     </header>
     <div class="gallery">
@@ -41,7 +44,6 @@
             </div>
             <% }) %>
     </div>
-    <% } %>
 </body>
 
 <footer><img src="//i.imgur.com/XqlWolf.png" class="banner-icon" alt="white image of alien with bald head"></footer>
