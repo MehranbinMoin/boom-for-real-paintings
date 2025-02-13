@@ -72,11 +72,17 @@ nav a {
 
 .banner-content {
     display: flex;
-
+    justify-content: space-between;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
     text-align: center;
+}
+
+.banner-image {
+    width: 400px;
+    height: auto;
 }
 
 .banner-content h1 {
@@ -243,9 +249,9 @@ nav a {
 .log-container {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
+    /* position: absolute;
     top: 20px;
-    right: 15px;
+    right: 15px; */
     padding: 10px;
 }
 
@@ -496,9 +502,19 @@ form {
     color: antiquewhite;
 }
 
+.log-container {
+    justify-content:
+}
+
 @media screen and (max-width: 1214px) {
     .banner-content {
         flex-direction: column;
         border: 2px dashed red;
+    }
+}
+
+@media screen and (max-width: 444px) {
+    .banner-image {
+        width: 300px;
     }
 }
