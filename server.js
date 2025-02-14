@@ -3,6 +3,7 @@ dotenv.config();
 const path = require("path");
 const express = require("express");
 const app = express();
+const MongoStore = require('connect-mongo');
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
@@ -19,6 +20,20 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}`);
 });
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGODB_URI,
+            collectionName: 'sessions',
+        }),
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24,
+        },
+    })
+);
 app.use(express.static(path.join(__dirname, 'Public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
