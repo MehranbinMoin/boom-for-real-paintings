@@ -20,6 +20,13 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}`);
 });
 
+app.use(express.static(path.join(__dirname, 'Public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
+app.post('/api/upload', upload.single('avatar'), (req, res) => {
+    res.send('Uploaded successfully!');
+});
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -32,20 +39,6 @@ app.use(
         cookie: {
             maxAge: 1000 * 60 * 60 * 24,
         },
-    })
-);
-app.use(express.static(path.join(__dirname, 'Public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride("_method"));
-app.use(express.static(path.join(__dirname, "public")));
-app.post('/api/upload', upload.single('avatar'), (req, res) => {
-    res.send('Uploaded successfully!');
-});
-app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: true,
     })
 );
 
