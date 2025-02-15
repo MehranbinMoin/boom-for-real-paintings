@@ -507,10 +507,6 @@ form {
 }
 
 @media screen and (max-width: 1214px) {
-    .banner-content {
-        flex-direction: column;
-        border: 2px dashed red;
-    }
 }
 
 @media screen and (max-width: 444px) {
