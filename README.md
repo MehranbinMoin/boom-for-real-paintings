@@ -1,4 +1,4 @@
-**Deployed site link: https**://popportunity-art-gallery.vercel.app/ 
+**Deployed site link**: [https://popportunity-art-gallery.vercel.app/](url) 
 
 **Screenshot/Logos**:
 I custom designed and uploaded the following 2 logos for my website. 
