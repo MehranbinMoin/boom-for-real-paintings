@@ -5,9 +5,13 @@ const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/:id', async (req, res) => {
-    const userId = req.params.id;
-    const user = await User.findById(userId);
-    res.render('user/home.ejs', { user });
+    if (req.session.user !== req.params.id) {
+        res.render('error.ejs')
+    } else {
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+        res.render('user/home.ejs', { user });
+    }
 });
 
 router.get('/:id/pieces/new', async (req, res) => {
